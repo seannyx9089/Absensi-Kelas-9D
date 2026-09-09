@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0a2540;
+  --navy-soft: #143b5d;
+  --cream: #f5f0e6;
+  --cream-deep: #eee6d6;
+  --ink: #243447;
+  --muted: #667788;
+  --line: rgba(10, 37, 64, 0.1);
+  --green: #1f8f64;
+  --yellow: #c98b21;
+  --red: #c84d4d;
+  --gray: #74808b;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--cream); }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:active { transform: scale(.98); }
+::selection { color: var(--cream); background: var(--navy); }
+
+.font-display { font-family: "Plus Jakarta Sans", sans-serif; }
+.bg-grid {
+  background-image: linear-gradient(rgba(10,37,64,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(10,37,64,.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.section-shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+.soft-shadow { box-shadow: 0 18px 55px rgba(10, 37, 64, .11); }
+.card-shadow { box-shadow: 0 10px 28px rgba(10, 37, 64, .08); }
+
+@keyframes floatIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(31,143,100,.3); } 50% { box-shadow: 0 0 0 7px rgba(31,143,100,0); } }
+.animate-float-in { animation: floatIn .5s cubic-bezier(.23,1,.32,1) both; }
+.animate-pulse-dot { animation: pulseDot 2s infinite; }
+
+@media (max-width: 640px) {
+  .section-shell { width: min(100% - 28px, 1160px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
