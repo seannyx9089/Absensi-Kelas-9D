@@ -10,6 +10,10 @@ function TeacherHome(_props: any) {
   return <Home teacherOnly />;
 }
 
+function EvidenceHome(_props: any) {
+  return <Home teacherOnly evidenceOnly />;
+}
+
 function PublicHome(_props: any) {
   return <Home />;
 }
@@ -19,6 +23,7 @@ function Router() {
     <Switch>
       <Route path="/" component={PublicHome} />
       <Route path="/guru" component={TeacherHome} />
+      <Route path="/guru/bukti" component={EvidenceHome} />
       <Route path="/dashboard" component={PublicHome} />
       <Route path="/izin" component={PublicHome} />
       <Route path="/404" component={NotFound} />
