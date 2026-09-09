@@ -7,15 +7,96 @@ import {
 } from "lucide-react";
 
 type Mode = "home" | "teacher" | "parent";
-type AttendanceStatus = "Hadir" | "Izin" | "Alpa" | "Telat";
+type AttendanceStatus = "Belum ditandai" | "Hadir" | "Izin" | "Alpa" | "Telat";
 
 type Student = { id: number; initials: string; name: string; className: string; status: AttendanceStatus; note: string };
 
-const studentNames: string[] = [];
+const studentNames: string[] = [
+  "Ahmad Faisal Rizki",
+  "Aisha Shakira Gustiar",
+  "Akmal Agung Asyhari",
+  "Ayesha Anervian",
+  "Desvita Indriyani",
+  "Dewi Novianti",
+  "Eliza Eliana",
+  "Eneng Sadira Aulia",
+  "Ilham Maulana",
+  "Irma Agustina",
+  "Laila Shafira Zahra",
+  "M Daffa Al-Goffar",
+  "M. Aldan Febrian",
+  "M. Marlian Maulana",
+  "M. Tegar Ramadhan",
+  "Moch. Jildan Apriliandi",
+  "Muhamad Abibi Arahman",
+  "Muhamad Sidik",
+  "Muhamad Syaripatul Akbar",
+  "Muhammad Haikal Aditya",
+  "Muhammad Ilyas",
+  "Muhammad Reza Setiawan",
+  "Nabil Saepul Anwar",
+  "Nadira Raeesa Mahadillan",
+  "Rahmi Ulfa Munawaroh",
+  "Ramdani",
+  "Randiansa Saputra",
+  "Rifda Nurfadilah",
+  "Rizki Aprilliyo",
+  "Rizky Anugrahwan",
+  "Silvi Aulia",
+  "Siti Hardiyanti",
+  "Siti Juliani",
+  "Siti Maulida",
+  "Siti Sarah Rahmawati",
+  "Siti Zulfah Zakiah",
+  "Siva Sri Rahayu",
+  "Tira Aprilia",
+  "Yasmin Syafka Galbina",
+];
 
-const studentsSeed: Student[] = [];
+const studentsSeed: Student[] = [
+  { id: 1, initials: "AF", name: "Ahmad Faisal Rizki", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 2, initials: "AS", name: "Aisha Shakira Gustiar", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 3, initials: "AA", name: "Akmal Agung Asyhari", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 4, initials: "AA", name: "Ayesha Anervian", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 5, initials: "DI", name: "Desvita Indriyani", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 6, initials: "DN", name: "Dewi Novianti", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 7, initials: "EE", name: "Eliza Eliana", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 8, initials: "ES", name: "Eneng Sadira Aulia", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 9, initials: "IM", name: "Ilham Maulana", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 10, initials: "IA", name: "Irma Agustina", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 11, initials: "LS", name: "Laila Shafira Zahra", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 12, initials: "MD", name: "M Daffa Al-Goffar", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 13, initials: "MA", name: "M. Aldan Febrian", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 14, initials: "MM", name: "M. Marlian Maulana", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 15, initials: "MT", name: "M. Tegar Ramadhan", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 16, initials: "MJ", name: "Moch. Jildan Apriliandi", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 17, initials: "MA", name: "Muhamad Abibi Arahman", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 18, initials: "MS", name: "Muhamad Sidik", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 19, initials: "MS", name: "Muhamad Syaripatul Akbar", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 20, initials: "MH", name: "Muhammad Haikal Aditya", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 21, initials: "MI", name: "Muhammad Ilyas", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 22, initials: "MR", name: "Muhammad Reza Setiawan", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 23, initials: "NS", name: "Nabil Saepul Anwar", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 24, initials: "NR", name: "Nadira Raeesa Mahadillan", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 25, initials: "RU", name: "Rahmi Ulfa Munawaroh", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 26, initials: "R", name: "Ramdani", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 27, initials: "RS", name: "Randiansa Saputra", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 28, initials: "RN", name: "Rifda Nurfadilah", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 29, initials: "RA", name: "Rizki Aprilliyo", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 30, initials: "RA", name: "Rizky Anugrahwan", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 31, initials: "SA", name: "Silvi Aulia", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 32, initials: "SH", name: "Siti Hardiyanti", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 33, initials: "SJ", name: "Siti Juliani", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 34, initials: "SM", name: "Siti Maulida", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 35, initials: "SS", name: "Siti Sarah Rahmawati", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 36, initials: "SZ", name: "Siti Zulfah Zakiah", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 37, initials: "SS", name: "Siva Sri Rahayu", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 38, initials: "TA", name: "Tira Aprilia", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+  { id: 39, initials: "YS", name: "Yasmin Syafka Galbina", className: "IX D", status: "Belum ditandai", note: "Menunggu absensi guru" },
+];
 
 const statusStyle: Record<AttendanceStatus, { dot: string; bg: string; text: string }> = {
+  "Belum ditandai": { dot: "#9aa5ad", bg: "#eef1f3", text: "#66727c" },
   Hadir: { dot: "#1f8f64", bg: "#e2f3eb", text: "#176746" },
   Izin: { dot: "#c98b21", bg: "#fbefd8", text: "#996715" },
   Alpa: { dot: "#c84d4d", bg: "#f9e1df", text: "#a33f3f" },
@@ -56,6 +137,7 @@ function Home() {
   const [loginPass, setLoginPass] = useState("");
   const [attendanceOpen, setAttendanceOpen] = useState(false);
   const [teacherFilter, setTeacherFilter] = useState<"all" | "review">("all");
+  const [proofPreview, setProofPreview] = useState<"vn" | "file" | null>(null);
 
   const jump = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); setMobileOpen(false); };
   const openMode = (next: Mode) => { if (next === "teacher" && !loggedIn) { setShowLogin(true); return; } setMode(next); setNotice(""); window.setTimeout(() => document.getElementById(next === "teacher" ? "dashboard" : "izin")?.scrollIntoView({ behavior: "smooth" }), 20); };
@@ -98,6 +180,7 @@ function Home() {
         </div>
       </div>}
       {notice && <div className="fixed right-4 top-24 z-50 flex max-w-sm items-center gap-3 rounded-2xl bg-[#0A2540] px-4 py-3 text-sm font-semibold text-[#F5F0E6] shadow-2xl"><CheckCircle2 className="h-5 w-5 text-[#8bd5b3]" />{notice}<button onClick={() => setNotice("")}><X className="h-4 w-4 opacity-70" /></button></div>}
+      {proofPreview && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0A2540]/45 px-4 backdrop-blur-sm"><div className="w-full max-w-md rounded-[28px] bg-[#F5F0E6] p-6 shadow-2xl"><div className="flex items-start justify-between"><div><div className="mb-2 text-xs font-extrabold uppercase tracking-[.16em] text-[#1f8f64]">Bukti pengajuan izin</div><h2 className="font-display text-2xl font-extrabold text-[#0A2540]">{proofPreview === "vn" ? "Voice note orang tua" : "Bukti foto / PDF"}</h2></div><button onClick={() => setProofPreview(null)} className="rounded-xl p-2 text-[#74808b] hover:bg-white"><X className="h-5 w-5" /></button></div><div className="mt-5 rounded-2xl border border-dashed border-[#0A2540]/15 bg-white p-5 text-center"><div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e2f3eb] text-[#1f8f64]">{proofPreview === "vn" ? <Headphones className="h-5 w-5" /> : <FileText className="h-5 w-5" />}</div><div className="mt-3 text-sm font-extrabold text-[#0A2540]">Bukti akan tampil di sini</div><div className="mt-1 text-xs leading-5 text-[#74808b]">Saat orang tua mengirim {proofPreview === "vn" ? "VN" : "foto atau PDF"}, guru dapat memutarnya atau membukanya dari panel ini.</div></div></div></div>}
 
       <main>
         <section id="beranda" className="relative overflow-hidden border-b border-[#0A2540]/8">
@@ -119,7 +202,7 @@ function Home() {
 
         <section className="section-shell py-20"><SectionLabel eyebrow="Satu alur, banyak manfaat" title="Absensi yang terasa ringan." copy="Ruang Hadir dirancang untuk rutinitas kelas sehari-hari: cepat bagi guru, jelas bagi orang tua, dan mudah dipahami siswa." /><div className="grid gap-4 md:grid-cols-3"><FeatureCard icon={<LayoutDashboard />} number="01" title="Catat sekali, rapi selamanya" copy="Saat guru membuka absensi, semua data kehadiran tersusun otomatis tanpa spreadsheet yang terpisah." /><FeatureCard icon={<Headphones />} number="02" title="Izin dengan suara" copy="Orang tua cukup rekam pesan suara dan lampirkan bukti bila perlu. Guru bisa mendengar dan memverifikasi." /><FeatureCard icon={<BarChart3 />} number="03" title="Pahami pola kehadiran" copy="Lihat tren mingguan dan bulanan untuk menemukan pola, memberi apresiasi, atau melakukan tindak lanjut." /></div></section>
 
-        <section id="dashboard" className="border-y border-[#0A2540]/8 bg-white/45"><div className="section-shell py-20"><div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end"><SectionLabel eyebrow="Panel khusus guru" title="Kelola absensi IX D" copy={attendanceOpen ? "Sesi absensi sedang dibuka · perubahan status terlihat oleh orang tua." : "Sesi belum dibuka · buka absensi saat guru siap mencatat kehadiran."} /><div className="flex flex-wrap gap-2"><button onClick={() => setNotice("Rekap hanya dapat diekspor setelah absensi dibuka.")} className="rounded-xl border border-[#0A2540]/12 bg-white px-4 py-2.5 text-xs font-extrabold text-[#0A2540] transition hover:bg-[#F5F0E6]"><Download className="mr-2 inline h-4 w-4" />Export rekap</button><button onClick={toggleAttendance} className={`rounded-xl px-4 py-2.5 text-xs font-extrabold ${attendanceOpen ? "bg-[#c84d4d] text-white" : "bg-[#0A2540] text-[#F5F0E6]"}`}><Radio className="mr-2 inline h-4 w-4" />{attendanceOpen ? "Tutup absensi" : "Buka absensi"}</button></div></div><div className="mb-5 grid gap-3 sm:grid-cols-4"><MiniStat label="Total siswa" value="0" icon={<Users />} color="#0A2540" /><MiniStat label="Hadir" value={String(students.filter(s => s.status === "Hadir").length)} icon={<CheckCircle2 />} color="#1f8f64" /><MiniStat label="Perlu ditinjau" value={String(reviewCount)} icon={<Clock3 />} color="#c98b21" /><MiniStat label="Alpa" value={String(students.filter(s => s.status === "Alpa").length)} icon={<XCircle />} color="#c84d4d" /></div><div className="overflow-hidden rounded-[24px] border border-[#0A2540]/8 bg-white card-shadow"><div className="flex flex-col gap-3 border-b border-[#0A2540]/8 p-4 sm:flex-row sm:items-center sm:justify-between"><div><div className="flex items-center gap-2 text-sm font-extrabold text-[#0A2540]"><span className={`h-2 w-2 rounded-full ${attendanceOpen ? "bg-[#1f8f64]" : "bg-[#c98b21]"}`} />Daftar siswa</div><div className="mt-1 text-xs text-[#74808b]">Pilih status siswa, lalu orang tua dapat melihat hasilnya.</div></div><div className="flex gap-2 text-xs font-bold text-[#74808b]"><button onClick={() => setTeacherFilter("all")} className={`rounded-lg px-3 py-2 ${teacherFilter === "all" ? "bg-[#F5F0E6] text-[#0A2540]" : "hover:bg-[#F5F0E6]"}`}>Semua ({students.length})</button><button onClick={() => setTeacherFilter("review")} className={`rounded-lg px-3 py-2 ${teacherFilter === "review" ? "bg-[#fbefd8] text-[#996715]" : "hover:bg-[#F5F0E6]"}`}><Clock3 className="mr-1 inline h-3.5 w-3.5" />Perlu ditinjau ({reviewCount})</button></div></div><div className="overflow-x-auto"><table className="w-full min-w-[720px] text-left"><thead className="bg-[#fbf9f5] text-[11px] uppercase tracking-[.14em] text-[#74808b]"><tr><th className="px-5 py-4 font-extrabold">Siswa</th><th className="px-5 py-4 font-extrabold">Status untuk orang tua</th><th className="px-5 py-4 font-extrabold">Catatan</th><th className="px-5 py-4 text-right font-extrabold">Atur status</th></tr></thead><tbody>{visibleStudents.length === 0 ? <tr><td colSpan={4} className="px-5 py-12 text-center"><div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e9edf0] text-[#74808b]"><Users className="h-5 w-5" /></div><div className="mt-3 text-sm font-extrabold text-[#0A2540]">{teacherFilter === "review" ? "Tidak ada izin yang perlu ditinjau" : "Daftar siswa masih kosong"}</div><div className="mt-1 text-xs text-[#74808b]">{teacherFilter === "review" ? "Semua pengajuan sudah diproses." : "Tambahkan nama siswa IX D untuk mulai absensi."}</div></td></tr> : visibleStudents.map((student) => <tr key={student.id} className="border-t border-[#0A2540]/6 transition hover:bg-[#fbf9f5]"><td className="px-5 py-4"><div className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#e7edf1] text-xs font-extrabold text-[#0A2540]">{student.initials}</span><div><div className="text-sm font-extrabold text-[#0A2540]">{student.name}</div><div className="text-xs text-[#74808b]">{student.className}</div></div></div></td><td className="px-5 py-4"><StatusBadge status={student.status} /></td><td className="px-5 py-4 text-sm text-[#667788]">{student.note}</td><td className="px-5 py-4 text-right"><select aria-label={`Ubah status ${student.name}`} disabled={!attendanceOpen} value={student.status} onChange={(e) => updateStatus(student.id, e.target.value as AttendanceStatus)} className="rounded-lg border border-[#0A2540]/10 bg-[#fbf9f5] px-2 py-2 text-xs font-bold text-[#0A2540] disabled:cursor-not-allowed disabled:opacity-50"><option>Hadir</option><option>Izin</option><option>Telat</option><option>Alpa</option></select></td></tr>)}</tbody></table></div></div></div></section>
+        <section id="dashboard" className="border-y border-[#0A2540]/8 bg-white/45"><div className="section-shell py-20"><div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end"><SectionLabel eyebrow="Panel khusus guru" title="Kelola absensi IX D" copy={attendanceOpen ? "Sesi absensi sedang dibuka · perubahan status terlihat oleh orang tua." : "Sesi belum dibuka · buka absensi saat guru siap mencatat kehadiran."} /><div className="flex flex-wrap gap-2"><button onClick={() => setNotice("Rekap hanya dapat diekspor setelah absensi dibuka.")} className="rounded-xl border border-[#0A2540]/12 bg-white px-4 py-2.5 text-xs font-extrabold text-[#0A2540] transition hover:bg-[#F5F0E6]"><Download className="mr-2 inline h-4 w-4" />Export rekap</button><button onClick={toggleAttendance} className={`rounded-xl px-4 py-2.5 text-xs font-extrabold ${attendanceOpen ? "bg-[#c84d4d] text-white" : "bg-[#0A2540] text-[#F5F0E6]"}`}><Radio className="mr-2 inline h-4 w-4" />{attendanceOpen ? "Tutup absensi" : "Buka absensi"}</button></div></div><div className="mb-5 grid gap-3 sm:grid-cols-4"><MiniStat label="Total siswa" value={String(students.length)} icon={<Users />} color="#0A2540" /><MiniStat label="Hadir" value={String(students.filter(s => s.status === "Hadir").length)} icon={<CheckCircle2 />} color="#1f8f64" /><MiniStat label="Perlu ditinjau" value={String(reviewCount)} icon={<Clock3 />} color="#c98b21" /><MiniStat label="Alpa" value={String(students.filter(s => s.status === "Alpa").length)} icon={<XCircle />} color="#c84d4d" /></div><div className="overflow-hidden rounded-[24px] border border-[#0A2540]/8 bg-white card-shadow"><div className="flex flex-col gap-3 border-b border-[#0A2540]/8 p-4 sm:flex-row sm:items-center sm:justify-between"><div><div className="flex items-center gap-2 text-sm font-extrabold text-[#0A2540]"><span className={`h-2 w-2 rounded-full ${attendanceOpen ? "bg-[#1f8f64]" : "bg-[#c98b21]"}`} />Daftar siswa</div><div className="mt-1 text-xs text-[#74808b]">Pilih status siswa, lalu orang tua dapat melihat hasilnya.</div></div><div className="flex gap-2 text-xs font-bold text-[#74808b]"><button onClick={() => setTeacherFilter("all")} className={`rounded-lg px-3 py-2 ${teacherFilter === "all" ? "bg-[#F5F0E6] text-[#0A2540]" : "hover:bg-[#F5F0E6]"}`}>Semua ({students.length})</button><button onClick={() => setTeacherFilter("review")} className={`rounded-lg px-3 py-2 ${teacherFilter === "review" ? "bg-[#fbefd8] text-[#996715]" : "hover:bg-[#F5F0E6]"}`}><Clock3 className="mr-1 inline h-3.5 w-3.5" />Perlu ditinjau ({reviewCount})</button></div></div><div className="overflow-x-auto"><table className="w-full min-w-[720px] text-left"><thead className="bg-[#fbf9f5] text-[11px] uppercase tracking-[.14em] text-[#74808b]"><tr><th className="px-5 py-4 font-extrabold">Siswa</th><th className="px-5 py-4 font-extrabold">Status untuk orang tua</th><th className="px-5 py-4 font-extrabold">Catatan</th><th className="px-5 py-4 text-right font-extrabold">Atur status</th></tr></thead><tbody>{visibleStudents.length === 0 ? <tr><td colSpan={4} className="px-5 py-12 text-center"><div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e9edf0] text-[#74808b]"><Users className="h-5 w-5" /></div><div className="mt-3 text-sm font-extrabold text-[#0A2540]">{teacherFilter === "review" ? "Tidak ada izin yang perlu ditinjau" : "Daftar siswa masih kosong"}</div><div className="mt-1 text-xs text-[#74808b]">{teacherFilter === "review" ? "Semua pengajuan sudah diproses." : "Tambahkan nama siswa IX D untuk mulai absensi."}</div></td></tr> : visibleStudents.map((student) => <tr key={student.id} className="border-t border-[#0A2540]/6 transition hover:bg-[#fbf9f5]"><td className="px-5 py-4"><div className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#e7edf1] text-xs font-extrabold text-[#0A2540]">{student.initials}</span><div><div className="text-sm font-extrabold text-[#0A2540]">{student.name}</div><div className="text-xs text-[#74808b]">{student.className}</div></div></div></td><td className="px-5 py-4"><StatusBadge status={student.status} /></td><td className="px-5 py-4 text-sm text-[#667788]">{student.note}</td><td className="px-5 py-4"><div className="flex flex-wrap justify-end gap-2">{student.status === "Izin" && <><button onClick={() => setProofPreview("vn")} className="rounded-lg bg-[#e2f3eb] px-2.5 py-2 text-[11px] font-extrabold text-[#176746]"><Headphones className="mr-1 inline h-3.5 w-3.5" />Dengar VN</button><button onClick={() => setProofPreview("file")} className="rounded-lg bg-[#eef1f3] px-2.5 py-2 text-[11px] font-extrabold text-[#5d6973]"><FileText className="mr-1 inline h-3.5 w-3.5" />Lihat bukti</button></>}<select aria-label={`Ubah status ${student.name}`} disabled={!attendanceOpen} value={student.status} onChange={(e) => updateStatus(student.id, e.target.value as AttendanceStatus)} className="rounded-lg border border-[#0A2540]/10 bg-[#fbf9f5] px-2 py-2 text-xs font-bold text-[#0A2540] disabled:cursor-not-allowed disabled:opacity-50"><option>Belum ditandai</option><option>Hadir</option><option>Izin</option><option>Telat</option><option>Alpa</option></select></div></td></tr>)}</tbody></table></div></div></div></section>
 
         <section id="izin" className="section-shell py-20"><div className="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-start"><div><SectionLabel eyebrow="Portal orang tua" title="Kirim izin tanpa antre." copy="Pilih nama anak, rekam suara singkat, lalu kirim. Guru akan menerima notifikasi dan memprosesnya dari dashboard." /><div className="mt-7 space-y-4"><div className="flex gap-3"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0A2540] text-xs font-extrabold text-[#F5F0E6]">1</span><div><div className="font-extrabold text-[#0A2540]">Lengkapi keterangan</div><div className="mt-1 text-sm leading-6 text-[#74808b]">Pilih siswa dan jenis izin yang sesuai.</div></div></div><div className="flex gap-3"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0A2540] text-xs font-extrabold text-[#F5F0E6]">2</span><div><div className="font-extrabold text-[#0A2540]">Rekam atau lampirkan bukti</div><div className="mt-1 text-sm leading-6 text-[#74808b]">VN membuat konteks lebih mudah dipahami guru.</div></div></div><div className="flex gap-3"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0A2540] text-xs font-extrabold text-[#F5F0E6]">3</span><div><div className="font-extrabold text-[#0A2540]">Pantau statusnya</div><div className="mt-1 text-sm leading-6 text-[#74808b]">Notifikasi dikirim setelah izin diverifikasi.</div></div></div></div></div><ParentForm onSent={() => setNotice("Izin berhasil dikirim. Guru akan meninjaunya segera.")} /></div></section>
 
