@@ -6,12 +6,21 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
+function TeacherHome(_props: any) {
+  return <Home teacherOnly />;
+}
+
+function PublicHome(_props: any) {
+  return <Home />;
+}
+
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/dashboard" component={Home} />
-      <Route path="/izin" component={Home} />
+      <Route path="/" component={PublicHome} />
+      <Route path="/guru" component={TeacherHome} />
+      <Route path="/dashboard" component={PublicHome} />
+      <Route path="/izin" component={PublicHome} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
